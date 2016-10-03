@@ -1,4 +1,4 @@
-package com.simpleprogramer;
+package com.simpleprogrammer;
 
 public class ProteinData {
 	private int total;

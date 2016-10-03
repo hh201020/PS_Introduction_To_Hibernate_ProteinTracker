@@ -1,4 +1,7 @@
-package com.simpleprogramer;
+package com.simpleprogrammer;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class User {
 	
@@ -6,6 +9,8 @@ public class User {
 	private String name;
 	
 	private ProteinData proteinData = new ProteinData();
+	
+	private Set<UserHistory> history = new HashSet<>();
 	
 	public int getId() {
 		return id;
@@ -24,6 +29,12 @@ public class User {
 	}
 	public void setProteinData(ProteinData proteinData) {
 		this.proteinData = proteinData;
+	}
+	public Set<UserHistory> getHistory() {
+		return history;
+	}
+	public void setHistory(Set<UserHistory> history) {
+		this.history = history;
 	}
 	
 }

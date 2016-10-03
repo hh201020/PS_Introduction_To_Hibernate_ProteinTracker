@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 3, 2016 11:10:09 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-	<class name="com.simpleprogramer.User" table="USERS">
+	<class name="com.simpleprogrammer.User" table="USERS">
 		<id name="id" type="int">
 			<column name="ID" />
 			<generator class="identity" />
@@ -20,5 +20,13 @@
 				<column name="GOAL" default="100" />
 			</property>
 		</component>
+		
+		<set name="history" table="USER_HISTORY">
+			<key column="ID" />
+			<composite-element class="com.simpleprogrammer.UserHistory">
+				<property name="entryTime" type="date" column="ENTRY_TIME" />
+				<property name="entry" type="java.lang.String" column="ENTRY" />
+			</composite-element>
+		</set>
 	</class>
 </hibernate-mapping>

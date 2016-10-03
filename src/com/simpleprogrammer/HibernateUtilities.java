@@ -1,4 +1,4 @@
-package com.simpleprogramer;
+package com.simpleprogrammer;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
