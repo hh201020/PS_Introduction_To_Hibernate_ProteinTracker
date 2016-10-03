@@ -1,7 +1,9 @@
 package com.simpleprogrammer;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class User {
 	
@@ -12,18 +14,17 @@ public class User {
 	
 	private List<UserHistory> history = new ArrayList<>();
 	
-	private GoalAlert goalAlert; 
+	private Set<GoalAlert> goalAlerts = new HashSet<>(); 
 	
 	public User(){
 		setProteinData(new ProteinData());
 	}
 	
-	public GoalAlert getGoalAlert() {
-		return goalAlert;
+	public Set<GoalAlert> getGoalAlerts() {
+		return goalAlerts;
 	}
-
-	public void setGoalAlert(GoalAlert goalAlert) {
-		this.goalAlert = goalAlert;
+	public void setGoalAlerts(Set<GoalAlert> goalAlerts) {
+		this.goalAlerts = goalAlerts;
 	}
 
 	public int getId() {
