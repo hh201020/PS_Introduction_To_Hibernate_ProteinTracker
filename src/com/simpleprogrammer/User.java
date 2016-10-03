@@ -1,10 +1,7 @@
 package com.simpleprogrammer;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class User {
 	
@@ -13,7 +10,7 @@ public class User {
 	
 	private ProteinData proteinData = new ProteinData();
 	
-	private Collection<UserHistory> history = new ArrayList<>();
+	private List<UserHistory> history = new ArrayList<>();
 	
 	public int getId() {
 		return id;
@@ -33,11 +30,15 @@ public class User {
 	public void setProteinData(ProteinData proteinData) {
 		this.proteinData = proteinData;
 	}
-	public Collection<UserHistory> getHistory() {
+	public List<UserHistory> getHistory() {
 		return history;
 	}
-	public void setHistory(Collection<UserHistory> history) {
+	public void setHistory(List<UserHistory> history) {
 		this.history = history;
 	}
-
+	
+	public void addHistory(UserHistory historyItem){
+		historyItem.setUser(this);
+		history.add(historyItem);
+	}
 }
