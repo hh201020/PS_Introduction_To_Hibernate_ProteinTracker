@@ -12,10 +12,10 @@
             <column name="NAME"  />
         </property>
         <property name="total" type="int">
-            <column name="TOTAL" />
+            <column name="TOTAL" default="0" />
         </property>
         <property name="goal" type="int">
-            <column name="GOAL" />
+            <column name="GOAL" default="100"/>
         </property>
     </class>
 </hibernate-mapping>
