@@ -12,7 +12,7 @@
 			<column name="NAME" />
 		</property>
 
-		<one-to-one name="proteinData" class="com.simpleprogrammer.ProteinData" cascade="save-update"></one-to-one>
+		<many-to-one name="proteinData" class="com.simpleprogrammer.ProteinData" column="PROTEIN_DATA_ID" cascade="save-update" unique="true"></many-to-one>
 		
 		<list name="history" table="USER_HISTORY" inverse="true" cascade="save-update">
 			<key column="USER_ID" />

@@ -30,6 +30,9 @@ public class Program {
 		
 		loadedUser.getProteinData().setTotal(loadedUser.getProteinData().getTotal() + 50);
 		loadedUser.addHistory(new UserHistory(new Date(), "Added 50 protein"));
+		
+		user.setProteinData(new ProteinData());
+		
 		session.getTransaction().commit();
 		
 		session.close();
