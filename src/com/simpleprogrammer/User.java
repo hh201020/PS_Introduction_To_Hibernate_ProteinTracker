@@ -11,11 +11,21 @@ public class User {
 	private ProteinData proteinData;
 	
 	private List<UserHistory> history = new ArrayList<>();
-
+	
+	private GoalAlert goalAlert; 
+	
 	public User(){
 		setProteinData(new ProteinData());
 	}
 	
+	public GoalAlert getGoalAlert() {
+		return goalAlert;
+	}
+
+	public void setGoalAlert(GoalAlert goalAlert) {
+		this.goalAlert = goalAlert;
+	}
+
 	public int getId() {
 		return id;
 	}

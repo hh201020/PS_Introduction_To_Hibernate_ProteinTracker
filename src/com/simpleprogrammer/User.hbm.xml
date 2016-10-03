@@ -19,5 +19,11 @@
 			<list-index column="POSITION"></list-index>
 			<one-to-many class="com.simpleprogrammer.UserHistory"/>
 		</list>
+		
+		<join table="USER_GOALALERT" optional="true">
+			<key column="USER_ID"></key>
+			<many-to-one name="goalAlert" column="GOALALERT_ID" not-null="true" unique="true" cascade="save-update"></many-to-one>
+		</join>
+		
 	</class>
 </hibernate-mapping>
