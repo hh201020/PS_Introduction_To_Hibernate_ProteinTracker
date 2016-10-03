@@ -21,13 +21,13 @@
 			</property>
 		</component>
 		
-		<list name="history" table="USER_HISTORY">
+		<map name="history" table="USER_HISTORY">
 			<key column="ID" />
-			<list-index column="POSITION"></list-index>
+			<map-key type="java.lang.String" column="ENTRY_IDENTIFIER"></map-key>
 			<composite-element class="com.simpleprogrammer.UserHistory">
 				<property name="entryTime" type="date" column="ENTRY_TIME" />
 				<property name="entry" type="java.lang.String" column="ENTRY" />
 			</composite-element>
-		</list>
+		</map>
 	</class>
 </hibernate-mapping>
