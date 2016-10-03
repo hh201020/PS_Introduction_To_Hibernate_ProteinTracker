@@ -12,14 +12,7 @@
 			<column name="NAME" />
 		</property>
 
-		<component name="proteinData">
-			<property name="total" type="int">
-				<column name="TOTAL" default="0" />
-			</property>
-			<property name="goal" type="int">
-				<column name="GOAL" default="100" />
-			</property>
-		</component>
+		<one-to-one name="proteinData" class="com.simpleprogrammer.ProteinData" cascade="save-update"></one-to-one>
 		
 		<list name="history" table="USER_HISTORY" inverse="true" cascade="save-update">
 			<key column="USER_ID" />

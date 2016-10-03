@@ -19,7 +19,7 @@ public class Program {
 		user.addHistory(new UserHistory(new Date(), "Set the goal to 250"));
 		session.save(user);
 		session.getTransaction().commit();
-		
+
 		session.beginTransaction();
 		User loadedUser = (User) session.get(User.class, 1);  //or session.load(User.class, 1), here 1 is id
 		System.out.println("loaded user:" + loadedUser.getName());
