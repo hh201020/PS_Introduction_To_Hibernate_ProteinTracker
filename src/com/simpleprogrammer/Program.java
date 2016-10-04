@@ -3,6 +3,7 @@ package com.simpleprogrammer;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -15,17 +16,21 @@ public class Program {
 		Session session = HibernateUtilities.getSessionFactory().openSession();
 		session.beginTransaction();
 		
-		Query query = session.getNamedQuery("AllGoalAlerts");
 /*		
 		Query query = session.createQuery("select alert from GoalAlert alert")
 				.setFirstResult(2)		// Page starting from 2
 				.setMaxResults(3);		// Page get 1 result at a time
 */
+/*		Query query = session.getNamedQuery("AllGoalAlerts");
 		List<GoalAlert> goalAlerts = query.list();
 		for(GoalAlert goalAlert: goalAlerts){
 			System.out.println(goalAlert.getMessage());
-		}
-		
+		}*/
+		Criteria criteria = session.createCriteria(User.class);
+		List<User> Users = criteria.list();
+		for(User User: Users){
+			System.out.println(User.getName());
+		}		
 		session.getTransaction().commit();
 		session.close();
 		
