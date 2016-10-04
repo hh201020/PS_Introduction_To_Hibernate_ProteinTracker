@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 public class Program {
@@ -27,11 +28,21 @@ public class Program {
 		for(GoalAlert goalAlert: goalAlerts){
 			System.out.println(goalAlert.getMessage());
 		}*/
-		Criteria criteria = session.createCriteria(User.class).add(Restrictions.or(Restrictions.eq("name", "Joe"), Restrictions.eq("name", "Bob")));
-		List<User> Users = criteria.list();
-		for(User User: Users){
-			System.out.println(User.getName());
-		}		
+		Criteria criteria = session.createCriteria(User.class)
+				.add(Restrictions.or(
+						Restrictions.eq("name", "Joe"), 
+						Restrictions.eq("name", "Bob")
+				)).setProjection(Projections.projectionList()
+						.add(Projections.property("id"))
+						.add(Projections.property("name"))
+				);
+		
+		List<Object[]> results = criteria.list();
+		for (Object[] result : results) {
+			for (Object res : result) {
+				System.out.println(res.toString());
+			}
+		}	
 		session.getTransaction().commit();
 		session.close();
 		
