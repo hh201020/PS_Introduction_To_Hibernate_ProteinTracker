@@ -4,6 +4,7 @@
 <!-- Generated Oct 3, 2016 11:10:09 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
 	<class name="com.simpleprogrammer.User" table="USERS">
+	<cache usage="read-write"/>
 		<id name="id" type="int">
 			<column name="ID" />
 			<generator class="identity" />
@@ -15,6 +16,7 @@
 		<many-to-one name="proteinData" class="com.simpleprogrammer.ProteinData" column="PROTEIN_DATA_ID" cascade="save-update" unique="true"></many-to-one>
 		
 		<list name="history" table="USER_HISTORY" inverse="true" cascade="save-update">
+		<cache usage="read-write"/>
 			<key column="USER_ID" />
 			<list-index column="POSITION"></list-index>
 			<one-to-many class="com.simpleprogrammer.UserHistory"/>
