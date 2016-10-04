@@ -49,7 +49,7 @@ public class Program {
 /*		Query query = session.createQuery("update ProteinData pd set pd.total = 0");
 		query.executeUpdate();
 		*/
-		
+/*		
 		Criteria criteria = session.createCriteria(User.class);
 		ScrollableResults users = criteria.setCacheMode(CacheMode.IGNORE).scroll();  //Using cursor in database
 		int count = 0;
@@ -61,6 +61,12 @@ public class Program {
 				session.flush();
 				session.clear();
 			}
+			System.out.println(user.getName());
+		}*/
+		
+		Query query = session.createSQLQuery("select * from Users").addEntity(User.class);
+		List<User> users = query.list();
+		for(User user: users) {
 			System.out.println(user.getName());
 		}
 		
