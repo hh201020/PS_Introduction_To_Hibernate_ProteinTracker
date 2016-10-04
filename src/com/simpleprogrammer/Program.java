@@ -3,8 +3,10 @@ package com.simpleprogrammer;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.ScrollableResults;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -44,8 +46,23 @@ public class Program {
 			}
 		}	*/
 		
-		Query query = session.createQuery("update ProteinData pd set pd.total = 0");
+/*		Query query = session.createQuery("update ProteinData pd set pd.total = 0");
 		query.executeUpdate();
+		*/
+		
+		Criteria criteria = session.createCriteria(User.class);
+		ScrollableResults users = criteria.setCacheMode(CacheMode.IGNORE).scroll();  //Using cursor in database
+		int count = 0;
+		while(users.next()){
+			User user = (User) users.get(0);
+			user.setProteinData(new ProteinData());
+			session.save(user);
+			if(++count % 2 == 0) {	// Manual batching
+				session.flush();
+				session.clear();
+			}
+			System.out.println(user.getName());
+		}
 		
 		session.getTransaction().commit();
 		session.close();
