@@ -15,9 +15,12 @@ public class Program {
 		Session session = HibernateUtilities.getSessionFactory().openSession();
 		session.beginTransaction();
 		
+		Query query = session.getNamedQuery("AllGoalAlerts");
+/*		
 		Query query = session.createQuery("select alert from GoalAlert alert")
 				.setFirstResult(2)		// Page starting from 2
 				.setMaxResults(3);		// Page get 1 result at a time
+*/
 		List<GoalAlert> goalAlerts = query.list();
 		for(GoalAlert goalAlert: goalAlerts){
 			System.out.println(goalAlert.getMessage());
