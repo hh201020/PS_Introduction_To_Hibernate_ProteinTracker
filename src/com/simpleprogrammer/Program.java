@@ -1,15 +1,28 @@
 package com.simpleprogrammer;
 
 import java.util.Date;
+import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 public class Program {
 
 	public static void main(String[] args){
 		System.out.println("Helloooo");
-		
 		populateSampleData();
+		
+		Session session = HibernateUtilities.getSessionFactory().openSession();
+		session.beginTransaction();
+		
+		Query query = session.createQuery("select user from User as user");
+		List<User> users = query.list();
+		for(User user: users){
+			System.out.println(user.getName());
+		}
+		
+		session.getTransaction().commit();
+		session.close();
 		
 		HibernateUtilities.getSessionFactory().close();
 	}
