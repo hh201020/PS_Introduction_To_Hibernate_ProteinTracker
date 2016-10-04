@@ -14,7 +14,7 @@ public class HibernateUtilities {
 	static
 	{
 		try{
-			Configuration configuration = new Configuration().configure();
+			Configuration configuration = new Configuration().setInterceptor(new AuditInterceptor()).configure();
 			
 			serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
 			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
