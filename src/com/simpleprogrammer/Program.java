@@ -15,10 +15,12 @@ public class Program {
 		Session session = HibernateUtilities.getSessionFactory().openSession();
 		session.beginTransaction();
 		
-		Query query = session.createQuery("select user from User as user where user.name = :name").setString("name", "Joe");
-		List<User> users = query.list();
-		for(User user: users){
-			System.out.println(user.getName());
+		Query query = session.createQuery("select alert from GoalAlert alert")
+				.setFirstResult(2)		// Page starting from 2
+				.setMaxResults(3);		// Page get 1 result at a time
+		List<GoalAlert> goalAlerts = query.list();
+		for(GoalAlert goalAlert: goalAlerts){
+			System.out.println(goalAlert.getMessage());
 		}
 		
 		session.getTransaction().commit();
