@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 public class Program {
 
@@ -26,7 +27,7 @@ public class Program {
 		for(GoalAlert goalAlert: goalAlerts){
 			System.out.println(goalAlert.getMessage());
 		}*/
-		Criteria criteria = session.createCriteria(User.class);
+		Criteria criteria = session.createCriteria(User.class).add(Restrictions.or(Restrictions.eq("name", "Joe"), Restrictions.eq("name", "Bob")));
 		List<User> Users = criteria.list();
 		for(User User: Users){
 			System.out.println(User.getName());
