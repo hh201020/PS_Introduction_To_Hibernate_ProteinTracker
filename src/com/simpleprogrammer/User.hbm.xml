@@ -3,6 +3,11 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 3, 2016 11:10:09 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
+
+	<filter-def name="nameFilter" condition="name like :name">
+		<filter-param name="name" type="string"/>
+	</filter-def>
+
 	<class name="com.simpleprogrammer.User" table="USERS">
 	<cache usage="read-write"/>
 		<id name="id" type="int">
@@ -27,5 +32,6 @@
 			<many-to-many class="com.simpleprogrammer.GoalAlert" column="GOALALERT"></many-to-many>
 		</set>
 		
+		<filter name="nameFilter" />
 	</class>
 </hibernate-mapping>

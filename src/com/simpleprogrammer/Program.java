@@ -18,7 +18,18 @@ public class Program {
 		populateSampleData();
 		
 		Session session = HibernateUtilities.getSessionFactory().openSession();
+		session.enableFilter("nameFilter").setParameter("name", "j%");
 		session.beginTransaction();
+		
+//		Query query = session.createSQLQuery("select * from Users").addEntity(User.class);
+		Query query = session.createQuery("from User");
+		List<User> users = query.list();
+		for(User user: users) {
+			System.out.println(user.getName());
+		}
+		
+		User u = (User)session.load(User.class, 1);
+		System.out.println(u.getName());
 		
 /*		
 		Query query = session.createQuery("select alert from GoalAlert alert")
@@ -63,15 +74,6 @@ public class Program {
 			}
 			System.out.println(user.getName());
 		}*/
-		
-		Query query = session.createSQLQuery("select * from Users").addEntity(User.class);
-		List<User> users = query.list();
-		for(User user: users) {
-			System.out.println(user.getName());
-		}
-		
-		User u = (User)session.load(User.class, 1);
-		System.out.println(u.getName());
 		
 		session.getTransaction().commit();
 		session.close();
