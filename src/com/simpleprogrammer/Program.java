@@ -28,7 +28,7 @@ public class Program {
 		for(GoalAlert goalAlert: goalAlerts){
 			System.out.println(goalAlert.getMessage());
 		}*/
-		Criteria criteria = session.createCriteria(User.class)
+/*		Criteria criteria = session.createCriteria(User.class)
 				.add(Restrictions.or(
 						Restrictions.eq("name", "Joe"), 
 						Restrictions.eq("name", "Bob")
@@ -42,7 +42,11 @@ public class Program {
 			for (Object res : result) {
 				System.out.println(res.toString());
 			}
-		}	
+		}	*/
+		
+		Query query = session.createQuery("update ProteinData pd set pd.total = 0");
+		query.executeUpdate();
+		
 		session.getTransaction().commit();
 		session.close();
 		
