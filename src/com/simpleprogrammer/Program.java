@@ -70,6 +70,9 @@ public class Program {
 			System.out.println(user.getName());
 		}
 		
+		User u = (User)session.load(User.class, 1);
+		System.out.println(u.getName());
+		
 		session.getTransaction().commit();
 		session.close();
 		
