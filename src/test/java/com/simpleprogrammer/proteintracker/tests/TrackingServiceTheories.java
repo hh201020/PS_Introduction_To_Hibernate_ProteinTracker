@@ -7,6 +7,7 @@ import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
+import com.simpleprogrammer.proteintracker.NotifierStub;
 import com.simpleprogrammer.proteintracker.TrackingService;
 
 
@@ -22,7 +23,7 @@ public class TrackingServiceTheories {
 	
 	@Theory
 	public void postiveValuesShouldAlwaysHavePositiveTotals(int value) {
-		TrackingService service = new TrackingService();
+		TrackingService service = new TrackingService(new NotifierStub());
 		service.addProtein(value);
 		
 		Assume.assumeTrue(value > 0);
