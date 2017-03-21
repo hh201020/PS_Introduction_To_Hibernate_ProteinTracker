@@ -1,4 +1,4 @@
-package com.simpleprogrammer;
+package com.simpleprogrammer.hibernate;
 
 import java.util.ArrayList;
 import java.util.HashSet;

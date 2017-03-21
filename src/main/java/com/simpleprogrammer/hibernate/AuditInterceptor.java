@@ -1,4 +1,4 @@
-package com.simpleprogrammer;
+package com.simpleprogrammer.hibernate;
 
 import java.io.Serializable;
 import java.util.Iterator;

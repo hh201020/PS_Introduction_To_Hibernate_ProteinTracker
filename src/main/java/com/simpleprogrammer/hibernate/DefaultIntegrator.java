@@ -1,4 +1,4 @@
-package com.simpleprogrammer;
+package com.simpleprogrammer.hibernate;
 
 import org.hibernate.cfg.Configuration;
 import org.hibernate.engine.spi.SessionFactoryImplementor;

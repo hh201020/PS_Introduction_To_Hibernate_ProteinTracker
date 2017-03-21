@@ -1,4 +1,4 @@
-package com.simpleprogrammer;
+package com.simpleprogrammer.hibernate;
 
 public class GoalAlert {
 	private int id;
