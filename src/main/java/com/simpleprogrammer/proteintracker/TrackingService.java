@@ -30,10 +30,10 @@ public class TrackingService {
 
 	public void setGoal(int value) throws InvalidGoalException {
 		if(value < 0)
-			throw new InvalidGoalException();
+			throw new InvalidGoalException("Goal was less than zero!");
 		goal = value;
 	}
-
+	
 	public boolean isGoalMet() {
 		return total >= goal;
 	}
