@@ -1,3 +1,4 @@
+package com.simpleprogrammer.proteintracker.tests;
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;

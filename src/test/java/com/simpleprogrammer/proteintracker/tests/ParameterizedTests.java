@@ -1,3 +1,4 @@
+package com.simpleprogrammer.proteintracker.tests;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
