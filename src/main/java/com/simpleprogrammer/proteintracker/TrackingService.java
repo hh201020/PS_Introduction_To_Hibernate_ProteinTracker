@@ -1,4 +1,4 @@
-package com.simpleprogrammer;
+package com.simpleprogrammer.proteintracker;
 
 import java.util.ArrayList;
 import java.util.List;

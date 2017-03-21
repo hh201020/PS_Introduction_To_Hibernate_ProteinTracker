@@ -1,4 +1,4 @@
-package com.simpleprogrammer;
+package com.simpleprogrammer.proteintracker;
 
 public class HistoryItem {
 
